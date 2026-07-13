@@ -15,7 +15,7 @@ export default function Hero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentVideo((prev) => (prev + 1) % backgroundVideos.length);
-    }, 9000); // Swap every 9 seconds
+    }, 12000); // Swap every 12 seconds to account for the 1.5s fade transitions
     
     return () => clearInterval(interval);
   }, []);
