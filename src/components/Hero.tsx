@@ -25,13 +25,12 @@ export default function Hero() {
       
       {/* Background Video Layer */}
       <div className="absolute inset-0 z-0">
-        <AnimatePresence>
+        {backgroundVideos.map((video, idx) => (
           <motion.video
-            key={currentVideo}
-            src={backgroundVideos[currentVideo]}
+            key={video}
+            src={video}
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            animate={{ opacity: currentVideo === idx ? 1 : 0 }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
             className="absolute inset-0 w-full h-full object-cover"
             autoPlay
@@ -39,7 +38,7 @@ export default function Hero() {
             loop
             playsInline
           />
-        </AnimatePresence>
+        ))}
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0d0d0d]"></div>
